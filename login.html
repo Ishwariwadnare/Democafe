@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - democafe</title>
+  <!--tailwind css link-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#6F4E37", //  coffee brown
+            secondary: "#F5EDE6" // cream background
+          }
+        }
+      }
+    }
+  </script>
+<!-- google fonts link -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    h1, h2, h3, .brand-font {
+      font-family: 'Playfair Display', serif;
+    }
+    /* Simple glassmorphism effect for the form */
+    .glass-form {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body class="bg-secondary min-h-screen flex items-center justify-center p-4 md:p-10 font-[Poppins]">
+
+  <div class="bg-white w-full max-w-7xl rounded-3xl shadow-2xl overflow-hidden grid md:grid-cols-2 gap-0">
+
+    <div class="relative bg-primary p-12 text-white flex flex-col justify-between overflow-hidden hidden md:flex">
+      
+      <img src="assets/images/hero3.jpg" alt="Cafe Background" class="absolute inset-0 w-full h-full object-cover opacity-20">
+
+      <div class="relative z-10">
+        <a href="index.html" class="text-3xl font-bold brand-font tracking-tight">democafe</a>
+        
+        <div class="mt-20">
+          <h1 class="text-5xl font-bold leading-tight brand-font mb-4">Your Smart <br>Brew Starts Here.</h1>
+          <p class="text-secondary/80 text-lg max-w-md">Seamlessly manage your orders, reservations, and connections, one perfect cup at a time.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="bg-white p-10 md:p-16 flex flex-col justify-center glass-form">
+      
+      <div class="text-center mb-8 md:hidden">
+        <a href="index.html" class="text-3xl font-bold brand-font text-primary">democafe</a>
+      </div>
+
+      <div class="mb-10 text-center md:text-left">
+        <h2 class="text-4xl font-bold text-gray-900 brand-font mb-2">Welcome !</h2>
+        <p class="text-gray-500">Sign in to order your favorites</p>
+      </div>
+
+      <form class="space-y-6">
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+          <input type="email" id="email"  
+                 class="w-full p-4 bg-gray-50 rounded-xl outline-none border border-transparent focus:border-primary focus:ring-1 focus:ring-primary transition">
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <input type="password" id="password" placeholder="••••••••" 
+                 class="w-full p-4 bg-gray-50 rounded-xl outline-none border border-transparent focus:border-primary focus:ring-1 focus:ring-primary transition">
+        </div>
+
+        <div class="flex items-center justify-between text-sm">
+          <div class="flex items-center">
+            <input type="checkbox" id="remember" class="h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary">
+            <label for="remember" class="ml-2 text-gray-600">Remember me</label>
+          </div>
+          <a href="#" class="text-primary hover:underline">Forgot password?</a>
+        </div>
+
+        <button type="submit" 
+                class="w-full bg-primary text-white py-4 rounded-xl font-semibold shadow-lg shadow-primary/30 hover:bg-opacity-95 active:scale-[0.98] transition-all">
+          LogIn
+        </button>
+      </form>
+
+      <div class="mt-12 text-center text-gray-600">
+        <p>Don’t have an account yet? 
+          <a href="register.html" class="text-primary font-bold hover:underline">Create Account</a>
+        </p>
+        <div class="mt-6">
+            <a href="index.html" class="text-sm text-gray-400 hover:text-primary transition">← Back to Home</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!--js links -->
+<script src="js/script.js"></script>
+</body>
+</html>

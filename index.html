@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>democafe - Cafe Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#6F4E37",
+            secondary: "#F5EDE6"
+          }
+        }
+      }
+    }
+  </script>
+
+  <!---icon links -->
+  <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+  
+    
+ <!---------Navbar section ---------->
+
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm transition-all duration-300">
+  <div class="flex justify-between items-center px-6 md:px-16 py-4">
+
+    <h1 class="text-2xl font-bold text-primary">democafe</h1>
+
+    <ul class="hidden md:flex space-x-8 font-medium text-primary">
+      <li><a href="#services" class="nav-link hover:text-primary">Services</a></li>
+      <li><a href="#menu" class="nav-link hover:text-primary">Menu</a></li>
+      <li><a href="#about" class="nav-link hover:text-primary">About</a></li>
+      <li><a href="#how-it-works" class="nav-link hover:text-primary">How It Works</a></li>
+      <li><a href="#reviews" class="nav-link hover:text-primary">Reviews</a></li>
+    </ul>
+
+    <div id="nav-auth-section" class="hidden md:flex space-x-4 items-center">
+      <a href="login.html" class="font-medium hover:underline text-primary">Login</a>
+      <a href="register.html" class="bg-primary text-white px-5 py-2 rounded-full hover:opacity-90 transition">
+        Register
+      </a>
+    </div>
+
+    <button id="menu-btn" class="md:hidden text-3xl text-primary focus:outline-none">
+      ☰
+    </button>
+
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden flex flex-col px-6 pb-6 space-y-4 bg-white shadow-md border-t">
+    <a href="#services" class="nav-link py-2 border-b border-gray-50">Services</a>
+    <a href="#menu" class="nav-link py-2 border-b border-gray-50">Menu</a>
+    <a href="#about" class="nav-link py-2 border-b border-gray-50">About</a>
+    <a href="#how-it-works" class="nav-link py-2 border-b border-gray-50">How It Works</a>
+    <a href="#reviews" class="nav-link py-2 border-b border-gray-50">Reviews</a>
+    
+    <div id="mobile-auth-section" class="flex flex-col space-y-3 pt-2">
+      <a href="login.html" class="text-center py-2 text-primary border border-primary rounded-full">Login</a>
+      <a href="register.html" class="bg-primary text-white px-5 py-2 rounded-full text-center">
+        Register
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-------hero section---------->
+  <section id="home" class="relative overflow-hidden bg-gray-100">
+    <div id="hero-slider" class="flex transition-transform duration-700 ease-in-out">
+        
+        <div class="min-w-full relative h-[300px] sm:h-[450px] md:h-[600px]">
+            <img src="assets/images/hero1.jpg" class="w-full h-full object-cover object-center" alt="Delicious Food">
+            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <h2 class="text-white text-3xl md:text-5xl font-bold text-center px-4">Fresh & Tasty Meals</h2>
+            </div>
+        </div>
+
+        <div class="min-w-full relative h-[300px] sm:h-[450px] md:h-[600px]">
+            <img src="assets/images/hero2.jpg" class="w-full h-full object-cover object-center" alt="Best Offers">
+            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <h2 class="text-white text-3xl md:text-5xl font-bold text-center px-4">Exclusive Weekend Offers</h2>
+            </div>
+        </div>
+
+        <div class="min-w-full relative h-[300px] sm:h-[450px] md:h-[600px]">
+            <img src="assets/images/hero3.jpg" class="w-full h-full object-cover object-center" alt="Fast Delivery">
+            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                <h2 class="text-white text-3xl md:text-5xl font-bold text-center px-4">Fastest Delivery in Town</h2>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+        <div class="dot w-2 h-2 rounded-full bg-white cursor-pointer opacity-50 transition-all duration-300"></div>
+        <div class="dot w-2 h-2 rounded-full bg-white cursor-pointer opacity-50 transition-all duration-300"></div>
+        <div class="dot w-2 h-2 rounded-full bg-white cursor-pointer opacity-50 transition-all duration-300"></div>
+    </div>
+</section>
+
+ <!----- OUR SERVICES SECTION ------->
+<section id="services" class="py-20 px-6 md:px-16 bg-white" >
+
+  <!-- Section Heading -->
+  <div class="text-center mb-14">
+    <p class="text-primary font-medium mb-2">Our Services</p>
+    <h2 class="text-4xl font-bold">Smart Cafe Management Features</h2>
+    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+      democafe provides modern digital tools to manage your cafe smoothly,
+      efficiently and professionally.
+    </p>
+  </div>
+
+  <!-- Services Grid -->
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+
+    <!-- Card 1 -->
+    <div class="group bg-secondary p-8 rounded-3xl shadow-md text-center transition duration-500 hover:-translate-y-3 hover:shadow-xl">
+      <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-white rounded-full shadow-md transition duration-500 group-hover:scale-110">
+        📋
+      </div>
+      <h3 class="text-xl font-bold mb-3">Digital Menu</h3>
+      <p class="text-gray-600 text-sm">
+        Browse categorized items with pricing and availability updates in real time.
+      </p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="group bg-secondary p-8 rounded-3xl shadow-md text-center transition duration-500 hover:-translate-y-3 hover:shadow-xl">
+      <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-white rounded-full shadow-md transition duration-500 group-hover:scale-110">
+        🛒
+      </div>
+      <h3 class="text-xl font-bold mb-3">Online Ordering</h3>
+      <p class="text-gray-600 text-sm">
+        Add items to cart, manage quantity and checkout quickly with smart order handling.
+      </p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="group bg-secondary p-8 rounded-3xl shadow-md text-center transition duration-500 hover:-translate-y-3 hover:shadow-xl">
+      <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-white rounded-full shadow-md transition duration-500 group-hover:scale-110">
+        📅
+      </div>
+      <h3 class="text-xl font-bold mb-3">Table Reservation</h3>
+      <p class="text-gray-600 text-sm">
+        Customers can book tables in advance with flexible date and time slots.
+      </p>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="group bg-secondary p-8 rounded-3xl shadow-md text-center transition duration-500 hover:-translate-y-3 hover:shadow-xl">
+      <div class="w-16 h-16 mx-auto mb-6 flex items-center justify-center bg-white rounded-full shadow-md transition duration-500 group-hover:scale-110">
+        ⚡
+      </div>
+      <h3 class="text-xl font-bold mb-3">Fast Checkout</h3>
+      <p class="text-gray-600 text-sm">
+        Secure and quick payment processing with instant confirmation.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!----- MENU SECTION ----->
+<section id="menu" class="py-20 px-6 md:px-16 bg-secondary">
+
+  <!-- Heading -->
+  <div class="text-center mb-14">
+    <p class="text-primary font-medium mb-2">Our Special Menu</p>
+    <h2 class="text-4xl font-bold">Pick Your Perfect Treat !</h2>
+    <p class="text-gray-600 mt-3">
+      Freshly brewed coffee, delicious snacks & delightful desserts.
+    </p>
+  </div>
+
+  <!-- Collection Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+
+    <!-- Main course -->
+    <div class="bg-white rounded-2xl shadow-md p-6 text-center 
+                hover:-translate-y-2 hover:shadow-xl transition duration-300">
+      <img src="assets/images/pizza.jpg"
+           class="w-28 h-28 mx-auto object-cover rounded-xl mb-4">
+      <h3 class="text-xl font-bold mb-3">Main Cravings</h3>
+      <button onclick="showMenu('main_cravings')"
+              class="bg-primary text-white px-5 py-2 rounded-full hover:bg-opacity-90 transition">
+        View Collection
+      </button>
+    </div>
+
+    <!-- Drinks -->
+    <div class="bg-white rounded-2xl shadow-md p-6 text-center 
+                hover:-translate-y-2 hover:shadow-xl transition duration-300">
+      <img src="assets/images/lime.jpg"
+           class="w-28 h-28 mx-auto object-cover rounded-xl mb-4">
+      <h3 class="text-xl font-bold mb-3">Drinks</h3>
+      <button onclick="showMenu('drinks')"
+              class="bg-primary text-white px-5 py-2 rounded-full hover:bg-opacity-90 transition">
+        View Collection
+      </button>
+    </div>
+
+    <!-- Snacks -->
+    <div class="bg-white rounded-2xl shadow-md p-6 text-center 
+                hover:-translate-y-2 hover:shadow-xl transition duration-300">
+      <img src="assets/images/maggie.jpg"
+           class="w-28 h-28 mx-auto object-cover rounded-xl mb-4">
+      <h3 class="text-xl font-bold mb-3">Snacks</h3>
+      <button onclick="showMenu('snacks')"
+              class="bg-primary text-white px-5 py-2 rounded-full hover:bg-opacity-90 transition">
+        View Collection
+      </button>
+    </div>
+
+    <!-- Desserts -->
+    <div class="bg-white rounded-2xl shadow-md p-6 text-center 
+                hover:-translate-y-2 hover:shadow-xl transition duration-300">
+      <img src="assets/images/waffle.jpg"
+           class="w-28 h-28 mx-auto object-cover rounded-xl mb-4">
+      <h3 class="text-xl font-bold mb-3">Desserts</h3>
+      <button onclick="showMenu('desserts')"
+              class="bg-primary text-white px-5 py-2 rounded-full hover:bg-opacity-90 transition">
+        View Collection
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Dynamic Menu Display -->
+  <div id="menuContent"
+       class="hidden mt-16 bg-white p-8 rounded-3xl shadow-lg transition-all duration-500">
+  </div>
+
+</section>
+
+
+<!----- ABOUT / OUR STORY SECTION ----->
+<section id="about" class="py-20 px-6 md:px-16 bg-white" >
+
+  <!-- Center Heading -->
+  <div class="text-center mb-14">
+    <p class="text-primary font-medium mb-2">About democafe</p>
+    <h2 class="text-4xl font-bold">Where Comfort Meets Smart Technology</h2>
+    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+      A cozy cafe experience powered by a modern digital management system.
+    </p>
+  </div>
+
+  <!-- Content Layout -->
+  <div class="grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- LEFT SIDE : 3 Small Images -->
+    <div class="grid grid-cols-2 gap-4">
+
+      <div class="overflow-hidden rounded-2xl shadow-md h-40 group">
+        <img src="assets/images/cafe-interior1.jpg"
+             class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+             alt="Cafe Interior">
+      </div>
+
+      <div class="overflow-hidden rounded-2xl shadow-md h-40 group">
+        <img src="assets/images/cafe-interior2.jpg"
+             class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+             alt="Coffee Art">
+      </div>
+
+      <!-- Third image full width below -->
+      <div class="overflow-hidden rounded-2xl shadow-md h-40 col-span-2 group">
+        <img src="assets/images/hero2.jpg"
+             class="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+             alt="Seating Area">
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE : STORY -->
+    <div>
+      <h3 class="text-2xl font-bold mb-4">Our Story</h3>
+
+      <p class="text-gray-600 mb-4 leading-relaxed">
+        democafe was created with the vision of combining the warmth of a
+        traditional cafe with the efficiency of modern technology.
+        We wanted to simplify ordering, reservations, and management
+        while keeping the cozy atmosphere customers love.
+      </p>
+
+      <p class="text-gray-600 mb-6 leading-relaxed">
+        From organic coffee beans to freshly prepared dishes,
+        quality remains our top priority. Our smart Cafe Management
+        System ensures faster service, better organization, and
+        a seamless experience for every customer.
+      </p>
+
+      <!-- Highlights -->
+      <div class="flex gap-6 mt-6">
+        <div>
+          <p class="text-2xl font-bold text-primary">100%</p>
+          <p class="text-sm text-gray-600">Fresh Ingredients</p>
+        </div>
+        <div>
+          <p class="text-2xl font-bold text-primary">Organic</p>
+          <p class="text-sm text-gray-600">Coffee Beans</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!----- HOW IT WORKS SECTION ----->
+<section id="how-it-works" class="py-20 px-6 md:px-16 bg-secondary">
+
+  <!-- Heading -->
+  <div class="text-center mb-16">
+    <p class="text-primary font-medium mb-2">How It Works</p>
+    <h2 class="text-4xl font-bold">Simple & Smart Process</h2>
+    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+      Manage your cafe operations digitally in just a few easy steps.
+    </p>
+  </div>
+
+  <!-- Steps -->
+  <div class="relative grid gap-12 md:grid-cols-4">
+
+    <!-- Step 1 -->
+    <div class="text-center group">
+      <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-white rounded-full shadow-md text-primary text-2xl font-bold transition duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+        1
+      </div>
+      <h3 class="text-xl font-bold mb-3">Register / Login</h3>
+      <p class="text-gray-600 text-sm">
+        Create an account or login to access the digital cafe system.
+      </p>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="text-center group">
+      <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-white rounded-full shadow-md text-primary text-2xl font-bold transition duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+        2
+      </div>
+      <h3 class="text-xl font-bold mb-3">Browse Menu</h3>
+      <p class="text-gray-600 text-sm">
+        Explore categorized menu items with pricing and availability.
+      </p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="text-center group">
+      <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-white rounded-full shadow-md text-primary text-2xl font-bold transition duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+        3
+      </div>
+      <h3 class="text-xl font-bold mb-3">Order / Reserve</h3>
+      <p class="text-gray-600 text-sm">
+        Add items to cart or reserve a table in advance.
+      </p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="text-center group">
+      <div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-white rounded-full shadow-md text-primary text-2xl font-bold transition duration-500 group-hover:scale-110 group-hover:bg-primary group-hover:text-white">
+        4
+      </div>
+      <h3 class="text-xl font-bold mb-3">Fast Checkout</h3>
+      <p class="text-gray-600 text-sm">
+        Complete secure payment and receive instant confirmation.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!----- CUSTOMER REVIEWS ----->
+<section id="reviews" class="py-20 px-6 md:px-16 bg-white">
+
+  <!-- Heading -->
+  <div class="text-center mb-14">
+    <p class="text-primary font-medium mb-2">What Our Customers Say</p>
+    <h2 class="text-4xl font-bold">Customer Reviews</h2>
+    <p class="text-gray-600 mt-3">
+      Real experiences from our happy customers at democafe.
+    </p>
+  </div>
+
+  <!-- Review Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+    <!-- Review 1 -->
+    <div class="bg-secondary p-8 rounded-3xl shadow-md 
+                hover:-translate-y-3 hover:shadow-xl 
+                transition duration-300">
+      
+      <div class="flex items-center mb-4">
+        <img src="assets/images/user1.jpg"
+             class="w-14 h-14 rounded-full object-cover mr-4">
+        <div>
+          <h4 class="font-bold">Priya Sharma</h4>
+          <div class="text-yellow-400 text-sm">
+            ★★★★★
+          </div>
+        </div>
+      </div> 
+
+      <p class="text-gray-600">
+        The ambience is absolutely beautiful and the hot chocolate was perfect! 
+        Loved the smooth ordering system.
+      </p>
+
+    </div>
+
+    <!-- Review 2 -->
+    <div class="bg-secondary p-8 rounded-3xl shadow-md 
+                hover:-translate-y-3 hover:shadow-xl 
+                transition duration-300">
+
+      <div class="flex items-center mb-4">
+        <img src="assets/images/user2.jpg"
+             class="w-14 h-14 rounded-full object-cover mr-4">
+        <div>
+          <h4 class="font-bold">Rahul Verma</h4>
+          <div class="text-yellow-400 text-sm">
+            ★★★★☆
+          </div>
+        </div>
+      </div>
+
+      <p class="text-gray-600">
+        Table reservation feature is very smooth. No waiting time at all.
+        Food quality was amazing!
+      </p>
+
+    </div>
+
+    <!-- Review 3 -->
+    <div class="bg-secondary p-8 rounded-3xl shadow-md 
+                hover:-translate-y-3 hover:shadow-xl 
+                transition duration-300">
+
+      <div class="flex items-center mb-4">
+        <img src="assets/images/user3.jpg"
+             class="w-14 h-14 rounded-full object-cover mr-4">
+        <div>
+          <h4 class="font-bold">Sneha Patil</h4>
+          <div class="text-yellow-400 text-sm">
+            ★★★★★
+          </div>
+        </div>
+      </div>
+
+      <p class="text-gray-600">
+        Fast checkout and amazing desserts! The cheesecake is a must try.
+        Highly recommend democafe.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+  <!----- FOOTER ----->
+<footer class="bg-primary text-white py-14 px-6 md:px-16">
+
+  <div class="grid md:grid-cols-3 gap-10 text-center md:text-left">
+
+    <!-- Cafe Info -->
+    <div>
+      <h3 class="text-2xl font-bold mb-4">democafe</h3>
+      <p class="text-white/80">
+        Smart Cafe Management System designed to simplify ordering,
+        reservations, and customer experience.
+      </p>
+    </div>
+
+    <!-- Contact Details -->
+    <div>
+      <h4 class="text-xl font-semibold mb-4">Contact Us</h4>
+      <p class="mb-2">📍 54-streetline, demo city, 000000</p>
+      <p class="mb-2">📞 +91-000-000-0000</p>
+      <p>📧 democafe@mail.com</p>
+    </div>
+
+    <!-- Social Media -->
+    <div>
+      <h4 class="text-xl font-semibold mb-4">Follow Us</h4>
+
+      <div class="flex justify-center md:justify-start space-x-5 text-2xl">
+
+        <a href="#" class="hover:scale-125 hover:text-yellow-200 transition duration-300">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="#" class="hover:scale-125 hover:text-yellow-200 transition duration-300">
+          <i class="fab fa-facebook"></i>
+        </a>
+
+        <a href="#" class="hover:scale-125 hover:text-yellow-200 transition duration-300">
+          <i class="fab fa-twitter"></i>
+        </a>
+
+        <a href="#" class="hover:scale-125 hover:text-yellow-200 transition duration-300">
+          <i class="fab fa-youtube"></i>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Line -->
+  <div class="border-t border-white/30 mt-10 pt-6 text-center text-white/70 text-sm">
+    © 2026 democafe. All Rights Reserved.
+  </div>
+
+</footer>
+  <!--- JS links --->
+<script src="js/script.js"></script>
+
+</script>
+</body>
+</html>
